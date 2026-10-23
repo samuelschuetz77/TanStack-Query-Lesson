@@ -1,0 +1,10 @@
+{
+  "editor.inlineSuggest.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "files.exclude": {
+    "**/CLAUDE.md": true,
+    "**/.claude": true
+  }
+}

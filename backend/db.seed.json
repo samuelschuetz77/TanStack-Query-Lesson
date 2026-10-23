@@ -1,0 +1,34 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Alex Rivera",
+      "role": "Developer",
+      "department": "Engineering"
+    },
+    {
+      "id": "2",
+      "name": "Morgan Lee",
+      "role": "Designer",
+      "department": "Product"
+    },
+    {
+      "id": "3",
+      "name": "Jordan Patel",
+      "role": "Analyst",
+      "department": "Operations"
+    },
+    {
+      "id": "4",
+      "name": "Taylor Brooks",
+      "role": "QA Engineer",
+      "department": "Engineering"
+    },
+    {
+      "id": "5",
+      "name": "Casey Chen",
+      "role": "Project Manager",
+      "department": "Product"
+    }
+  ]
+}
