@@ -9,3 +9,31 @@ export type Employee = {
   role: string
   department: string
 }
+
+export async function fetchEmployees(): Promise<Employee[]>{
+    const res = await fetch('http://localhost:3001/employees')
+    if (res.ok){
+      return res.json()
+    }
+
+    else {
+      const err = new Error("Failed to fetch employees")
+      console.error(err);
+      throw err;
+    }
+}
+
+export async function fetchEmployee(id:string): Promise<Employee>{
+  const res = await fetch(`http://localhost:3001/employees/${id}`)
+  if (res.ok){
+    return res.json()
+  }
+
+  else {
+    const err = new Error("Failed to Fetch Employee")
+     console.error(err);
+     throw err;
+  }
+} 
+
+
