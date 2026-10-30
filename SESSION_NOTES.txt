@@ -1,0 +1,38 @@
+TanStack Query Lab - session notes (2026-10-30)
+================================================
+
+WHERE WE ARE
+------------
+Step 4: createEmployee in frontend/src/api.ts. Almost done.
+Steps 1-3 are done. Steps 5-9 are next.
+
+STILL TO FIX (as of the end of the session)
+-------------------------------------------
+frontend/src/api.ts, line 53 (replace). The variable is named `error`, but lines 54-55 use `err`:
+---     const error = new Error("Failed to get json")
++++     const err = new Error("Failed to get json")
+
+frontend/src/api.ts, line 55 (replace). throw takes a space, not a dot:
+---     throw.err;
++++     throw err;
+
+After those two fixes, step 4 is done. Next is step 5 (useMutation for create/edit/delete).
+
+WHAT WE DID THIS SESSION
+------------------------
+- createEmployee had been nested inside fetchEmployee's else block. Moved that one
+  line below fetchEmployee's closing brace.
+- Added `role: string` to the createEmployee parameter type and opened the body with {.
+- Added the fetch POST (method, Content-Type header, body: JSON.stringify(emp)).
+- Added the if (res.ok) return res.json() block.
+- Added the else / throw block (has the two bugs listed above).
+
+TUTORING STYLE TO USE (tell Claude this on the other computer)
+--------------------------------------------------------------
+- Don't edit my files. Give me edits to type myself.
+- Use --- (old line) / +++ (new line) format.
+- Every set of edits must name the FILE and LINE NUMBER(S).
+- Keep each set small (a few lines). Never dump a whole function.
+- When I say "check" or "next", read my file and either point out the bug or give
+  the next small set.
+- When I correct the format, just acknowledge it. Don't re-send old code.

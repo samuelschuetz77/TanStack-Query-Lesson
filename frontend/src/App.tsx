@@ -35,6 +35,8 @@ export default function App() {
     <main>
       <h1>Employee Manager</h1>
       <input value={search} onChange={e => setSearch(e.target.value)} /> 
+     
+
       <ul>
         {emplist}
       </ul>

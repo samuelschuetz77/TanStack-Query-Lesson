@@ -33,7 +33,29 @@ export async function fetchEmployee(id:string): Promise<Employee>{
     const err = new Error("Failed to Fetch Employee")
      console.error(err);
      throw err;
+
+     
+     
+     
+     
+    }
+  } 
+export async function createEmployee(emp: {name: string; role:string; department: string; }): Promise<Employee>{
+  const res = await fetch('http://localhost:3001/employees', {method: 'POST', headers: {'Content-Type': 
+    'application/json'
+  }, body: JSON.stringify(emp) })
+  
+  if(res.ok){
+    return res.json()
   }
-} 
+
+  else {
+    const error = new Error("Failed to get json")
+    console.error(err);
+    throw.err;
+  }
+
+  
+}
 
 
