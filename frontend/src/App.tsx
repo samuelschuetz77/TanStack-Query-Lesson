@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [search, setSearch] = useState('')
   const {data,isPending,isError, error}  = useQuery({
     queryKey: ['employees'],
     queryFn: () => fetchEmployees(),
@@ -24,14 +25,20 @@ export default function App() {
     <p>pending....</p>
 
   )
-
-  const emplist = data.map((employee) => (<li key = {employee.id}>{employee.name} : {employee.role}</li>))
+// setSelectedId(employee.id). It saves the clicked employee's id into state.
+  const emplist = data.filter(e=> e.name.toLowerCase()
+  .includes(search.toLowerCase()))
+  .map((employee) => 
+  (<li key={employee.id} onClick={() => setSelectedId(employee.id)}>{employee.name} : {employee.role}</li>)) 
+  
   return (
     <main>
       <h1>Employee Manager</h1>
+      <input value={search} onChange={e => setSearch(e.target.value)} /> 
       <ul>
         {emplist}
       </ul>
+      {selectedId === null ? <p>Pick Someone</p> : isPending2 ? <p>Loading...</p> : isError2 ? <p>{error2.message}</p>  :  <p>{empl.name}, {empl.role}, {empl.department}</p>}
     </main>
   )
 }
