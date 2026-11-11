@@ -51,11 +51,44 @@ export async function createEmployee(emp: {name: string; role:string; department
 
   else {
     const error = new Error("Failed to get json")
-    console.error(err);
-    throw.err;
+    console.error({error});
+    throw error;
   }
 
-  
+
 }
+
+export async function updateEmployee(id:string,
+   fields: {name:string; role:string; department:string}):
+   Promise<Employee>{
+    const res = await fetch(`http://localhost:3001/employees/${id}` , {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(fields),
+      
+    })
+    if (res.ok){
+      return res.json()
+    } 
+    else{ 
+      const err = new Error('Failed to update employee')
+      console.error(err)
+      throw err
+    }
+    }
+
+
+export async function deleteEmployee(id:string):
+Promise<void>{
+ 
+const res = await fetch(`http://localhost:3001/employees/${id}` , {
+      method: 'DELETE',
+    })
+    if (!res.ok){
+      const err = new Error('Failed to delete employee')
+      console.error(err)
+      throw err
+    } 
+ } 
 
 
