@@ -58,6 +58,7 @@ export async function createEmployee(emp: {name: string; role:string; department
 
 }
 
+// TODO (step 6): updateEmployee(id, fields): PUT /employees/:id, returns the updated Employee.
 export async function updateEmployee(id:string,
    fields: {name:string; role:string; department:string}):
    Promise<Employee>{
@@ -88,7 +89,10 @@ const res = await fetch(`http://localhost:3001/employees/${id}` , {
       const err = new Error('Failed to delete employee')
       console.error(err)
       throw err
-    } 
- } 
+    }
+ }
+
+// TODO (step 7): deleteEmployee(id): DELETE /employees/:id. Check res.ok and throw on failure.
+// Follow the same ok/else-throw pattern as the functions above.
 
 

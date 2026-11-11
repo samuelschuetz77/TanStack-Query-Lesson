@@ -24,6 +24,14 @@ export default function App() {
     staleTime: 10_000,
     enabled: selectedId !== null
   })
+  // TODO (Stage 5, step 5): useQueryClient() + a useMutation for createEmployee.
+  //   onSuccess: invalidateQueries({ queryKey: ['employees'] }) so the list refetches.
+  // TODO (step 6): useMutation for updateEmployee (edit the selected employee).
+  // TODO (step 7): useMutation for deleteEmployee (clear selectedId if the deleted one was selected).
+  // TODO (step 8): compare invalidateQueries vs setQueryData for one of the writes.
+  // TODO (step 9): write a short explanation of mutation vs query and why invalidation is used.
+  // NOTE: hooks must stay above the early returns below.
+
   const queryClient = useQueryClient();
 
   
@@ -116,6 +124,9 @@ export default function App() {
         </button>
 
       </div>
+
+      {/* TODO (Stage 5): "Add employee" form: name, role, department inputs + submit button.
+          Submit calls the create mutation. Show pending / error / success feedback. */}
 
       <ul>
         {emplist}
